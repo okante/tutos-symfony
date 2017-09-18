@@ -1,0 +1,7 @@
+welcome:
+    resource: "@WelcomeBundle/Resources/config/routing.yml"
+    prefix:   /welcome
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
