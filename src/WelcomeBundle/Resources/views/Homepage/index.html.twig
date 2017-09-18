@@ -1,0 +1,16 @@
+{% extends "WelcomeBundle::layout.html.twig" %}
+
+{% block title %}Bonjour
+    {% if user_name %}
+        {{ user_name }}
+    {% endif %}!!
+{% endblock %}
+{% block content %}
+<p>
+    Vous êtes en train de lire la première page générée avec Symfony2, la homepage.
+    <br><br>
+    Pour mieux vous connaitre, informez-nous de votre pseudo en tapant cette url dans votre barre d'adresse et en y ajoutant votre pseudo :
+    <strong>http://localhost/qui-suis-je/mon_super_pseudo</strong>
+    <a href="{{ path('WelcomeBundle_contact') }}">Nous contacter</a>
+</p>
+{% endblock %}

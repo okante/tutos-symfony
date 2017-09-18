@@ -1,0 +1,22 @@
+parameters:
+    welcome.contact.type.class: WelcomeBundle\Form\Type\ContactType
+    welcome.contact.model.class: WelcomeBundle\Form\Model\Contact
+    welcome.contact.handler.class: WelcomeBundle\Form\Handler\ContactHandler
+#    welcome.example:
+#        class: WelcomeBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+services:
+    welcome.contact.form.type:
+        class: %welcome.contact.type.class%
+        arguments: [%welcome.contact.model.class%]
+        tags:
+            - { name: form.type, alias: welcome_contact}
+    welcome.contact.form.handler:
+        class: %welcome.contact.handler.class%
+        scope: request
+        arguments: ["@welcome.contact.form", "@request", "@mailer"]
+    welcome.contact.form:
+        class: Symfony\Component\Form\Form
+        arguments: ["@welcome.contact.form.type"]
+        factory_method: create
+        factory_service: form.factory

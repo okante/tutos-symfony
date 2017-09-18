@@ -1,0 +1,29 @@
+# src/WelcomeBundle/Ressources/config/validation.yml
+
+WelcomeBundle\Form\Model\Contact:
+    properties:
+        email:
+            - Email:
+                message: The email "{{ value }}" is not a valid email.
+                checkMX: true
+        firstname:
+            - NotBlank: ~
+        lastsame:
+            - NotBlank: ~
+        subject:
+            - Length:
+                min: 5
+                max: 50
+                minMessage: 'Le sujet est trop court, il doit faire au moins {{ limit }} caractères'
+                maxMessage: 'Le sujet est trop long, il doit faire au maximum {{ limit }} caractères'
+        subject:
+            - Length:
+                min: 5
+                max: 50
+                minMessage: 'Le sujet est trop court, il doit faire au moins {{ limit }} caractères'
+                maxMessage: 'Le sujet est trop long, il doit faire au maximum {{ limit }} caractères'
+        content:
+                min: 10
+                max: 50
+                minMessage: 'Le message est trop court, il doit faire au moins {{ limit }} caractères'
+                maxMessage: 'Le message est trop long, il doit faire au maximum {{ limit }} caractères'

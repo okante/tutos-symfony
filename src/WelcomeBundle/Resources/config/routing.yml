@@ -1,0 +1,13 @@
+WelcomeBundle_whoami:
+    pattern:  /qui-suis-je/{name}
+    defaults: { _controller: WelcomeBundle:Homepage:whoAmI }
+    requirements:
+        name: \w+
+WelcomeBundle_contact:
+    pattern:  /subscribe
+    defaults: { _controller: WelcomeBundle:Contact:index }
+    requirements:
+      name: \w+
+WelcomeBundle_homepage:
+    path: /
+    defaults: { _controller: WelcomeBundle:Homepage:index }
